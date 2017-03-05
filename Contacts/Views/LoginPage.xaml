@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Contacts.LoginPage" xmlns:local="clr-namespace:Contacts;assembly=Contacts" Title="Inicio">
+	<ContentPage.Content>
+		<StackLayout Padding="20" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+			<Image Source="Xamarin.png" HorizontalOptions="Fill">
+			</Image>
+			<Label Text="Bienvenido al laboratorio del módulo 3" FontSize="Small" HorizontalOptions="Center">
+			</Label>
+			<ActivityIndicator AutomationId="indIsBusy" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+			<Entry AutomationId="entUserName"  Placeholder="Nombre Completo del Alumno" Text="{Binding UserName}" />
+			<Entry AutomationId="email" Keyboard="Email" Placeholder="Correo Electrónico" Text="{Binding EMail}">
+				<Entry.Behaviors>
+					<local:MailValidationBehavior x:Name="emailValidation" />
+				</Entry.Behaviors>
+			</Entry>
+			<Entry AutomationId="entPassword" IsPassword="True" Placeholder="Password" Text="{Binding Password}" />
+			<Button AutomationId="btnLogin" x:Name="btnLogin" Text="Iniciar" Command="{Binding LoginCommand}">
+			</Button>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
